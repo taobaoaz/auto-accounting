@@ -1,7 +1,7 @@
 ---
 name: auto-accounting
 description: 自动识别图片中的记账信息，并在一日记账APP中自动记录。支持微信、支付宝、京东、淘宝、美团等主流平台。
-version: 1.0.0
+version: 1.0.2
 metadata:
   openclaw:
     requires:
@@ -362,11 +362,22 @@ auto-accounting/
 ├── package.json                # 依赖配置
 ├── README.md                   # 快速入门
 ├── SECURITY_AUDIT.md           # 安全审计报告
+├── FEATURE_CHECK.md            # 功能检查报告
 ├── .gitignore                  # Git 忽略配置
 ├── scripts/
-│   └── accounting_parser.py    # 账目解析器
-└── config/
-    └── config.py               # 配置文件
+│   ├── accounting_parser.py    # 账目解析器
+│   ├── user_preferences.py     # 用户偏好配置
+│   └── accounting_history.py   # 记账历史管理
+├── config/
+│   └── config.py               # 配置文件
+├── tests/
+│   └── test_accounting.py      # 测试用例
+└── examples/
+    ├── README.md               # 示例说明
+    ├── wechat_pay.json         # 微信支付示例
+    ├── jd_order.json           # 京东订单示例
+    ├── meituan_order.json      # 美团订单示例
+    └── alipay_income.json      # 支付宝收款示例
 ```
 
 ---
@@ -375,6 +386,7 @@ auto-accounting/
 
 | 版本 | 日期 | 更新内容 |
 |------|------|----------|
+| 1.0.2 | 2026-04-02 | 添加用户偏好配置、记账历史管理、测试用例、示例数据 |
 | 1.0.0 | 2026-04-02 | 初始版本，支持主流支付平台和购物平台 |
 
 ---
