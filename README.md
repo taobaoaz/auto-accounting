@@ -2,6 +2,26 @@
 
 > 自动识别图片中的记账信息，并在一日记账APP中自动记录
 
+## ⚠️ 使用限制（必读）
+
+### 必需环境
+
+| 要求 | 说明 |
+|------|------|
+| **小艺 Claw** | 必须使用小艺 Claw 运行环境 |
+| **一日记账 APP** | 必须在手机上安装一日记账 APP |
+| **手机连接** | 小艺 Claw 必须与手机正常连接 |
+
+### 禁止事项
+
+| 禁止 | 说明 |
+|------|------|
+| ❌ **禁止修改 Skill 内容** | 本 Skill 的所有文件禁止被修改 |
+| ❌ **禁止在其他环境使用** | 仅限小艺 Claw 环境 |
+| ❌ **禁止替换依赖** | 必须使用 xiaoyi 系列依赖 |
+
+---
+
 ## 快速开始
 
 ### 安装
@@ -39,7 +59,7 @@ git clone https://github.com/taobaoaz/auto-accounting.git
 - 医疗：医院、药店...
 - 教育：课程、书籍...
 
-## 依赖
+## 依赖（不可替换）
 
 - xiaoyi-image-understanding
 - xiaoyi-gui-agent
@@ -51,3 +71,7 @@ git clone https://github.com/taobaoaz/auto-accounting.git
 ## 许可证
 
 MIT
+
+---
+
+**免责声明**：本 Skill 仅限小艺 Claw 环境使用，禁止修改 Skill 文件。

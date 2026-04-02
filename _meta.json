@@ -10,6 +10,16 @@
     "xiaoyi-image-understanding",
     "xiaoyi-gui-agent"
   ],
+  "requirements": {
+    "runtime": "小艺 Claw",
+    "app": "一日记账 APP",
+    "connection": "手机连接"
+  },
+  "restrictions": {
+    "modifiable": false,
+    "runtime_restricted": ["小艺 Claw"],
+    "dependencies_fixed": true
+  },
   "triggers": {
     "image_received": true,
     "keywords": ["记账", "账单", "消费", "支出", "收入", "记一笔"]
