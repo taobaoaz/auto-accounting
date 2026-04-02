@@ -1,7 +1,7 @@
 ---
 name: auto-accounting
 description: 自动识别图片中的记账信息，并在一日记账APP中自动记录。支持微信、支付宝、京东、淘宝、美团等主流平台。
-version: 1.0.7
+version: 1.0.8
 metadata:
   openclaw:
     requires:
@@ -406,6 +406,7 @@ GUI Agent 操作一日记账APP
 ```
 auto-accounting/
 ├── SKILL.md                    # Skill 说明文档
+├── LICENSE                     # 使用许可协议
 ├── _meta.json                  # 元数据
 ├── package.json                # 依赖配置
 ├── README.md                   # 快速入门
@@ -414,6 +415,7 @@ auto-accounting/
 ├── .gitignore                  # Git 忽略配置
 ├── scripts/
 │   ├── accounting_parser.py    # 账目解析器
+│   ├── runtime_validator.py    # 运行时环境校验器
 │   ├── user_preferences.py     # 用户偏好配置
 │   └── accounting_history.py   # 记账历史管理
 ├── config/
@@ -434,8 +436,9 @@ auto-accounting/
 
 | 版本 | 日期 | 更新内容 |
 |------|------|----------|
+| 1.0.8 | 2026-04-02 | 添加运行时环境校验器（runtime_validator.py），强化版权保护，添加 LICENSE 文件 |
 | 1.0.7 | 2026-04-02 | 明确禁止其他记账APP厂商使用，添加法律声明 |
-| 1.0.5 | 2026-04-02 | 强化底层要求说明，明确仅支持小艺 Claw + 一日记账 APP |
+| 1.0.5 | 2026-04-02 | 强化底层要求说明，明确仅支持小艺 Claw + 一记账 APP |
 | 1.0.2 | 2026-04-02 | 添加用户偏好配置、记账历史管理、测试用例、示例数据 |
 | 1.0.0 | 2026-04-02 | 初始版本，支持主流支付平台和购物平台 |
 
@@ -449,7 +452,13 @@ auto-accounting/
 
 ## 许可证
 
-MIT-0 (ClawHub 默认许可证)
+本软件采用限制性许可协议，详见 [LICENSE](LICENSE) 文件。
+
+**核心限制：**
+- ✅ 允许：在小艺 Claw + 一记账 APP 环境中使用
+- ❌ 禁止：用于其他记账应用
+- ❌ 禁止：在其他 AI 平台运行
+- ❌ 禁止：修改、转售、声称为自己开发
 
 ---
 

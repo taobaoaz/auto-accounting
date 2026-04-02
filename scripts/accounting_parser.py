@@ -23,12 +23,32 @@ Copyright (c) 2026 摇摇
 
 import json
 import re
+import os
 from datetime import datetime
 from typing import Dict, Optional, Any
+
+# 导入运行时校验器
+try:
+    from runtime_validator import RuntimeValidator
+    VALIDATOR_AVAILABLE = True
+except ImportError:
+    VALIDATOR_AVAILABLE = False
 
 
 class AccountingParser:
     """账目信息解析器"""
+    
+    # 版权声明
+    COPYRIGHT = "auto-accounting v1.0.7 | Copyright © 2026 摇摇 | 仅限小艺 Claw + 一记账 APP"
+    
+    # 授权的目标应用
+    AUTHORIZED_APP = "一日记账"
+    
+    # 禁止的竞品应用关键词
+    FORBIDDEN_APPS = [
+        "随手记", "鲨鱼记账", "网易有钱", "挖财记账", "口袋记账",
+        "叨叨记账", "钱迹", "记账城市", "feidee", "wacai"
+    ]
     
     # 分类规则
     CATEGORY_RULES = {
@@ -300,9 +320,23 @@ class AccountingParser:
             
         Returns:
             GUI Agent可执行的查询语句
+            
+        Raises:
+            PermissionError: 如果检测到竞品应用
         """
         if not data.get("is_accounting") or not data.get("amount"):
             return None
+        
+        # 校验目标应用（如果环境变量中有指定）
+        target_app = os.environ.get("TARGET_APP_PACKAGE", "")
+        for forbidden in self.FORBIDDEN_APPS:
+            if forbidden.lower() in target_app.lower():
+                raise PermissionError(
+                    f"❌ 禁止操作：检测到竞品记账应用\n"
+                    f"本 Skill 仅支持「{self.AUTHORIZED_APP}」\n\n"
+                    f"授权环境：小艺 Claw + 一记账 APP\n"
+                    f"联系方式：QQ 2756077825"
+                )
         
         template = (
             "打开一日记账APP，点击记一笔按钮，选择{type}类型，"
@@ -320,6 +354,24 @@ class AccountingParser:
 
 def main():
     """测试入口"""
+    # 打印版权水印
+    print("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
+    print("auto-accounting v1.0.7")
+    print("Copyright © 2026 摇摇")
+    print("授权环境：小艺 Claw + 一记账 APP")
+    print("禁止用于其他记账应用")
+    print("联系方式：QQ 2756077825")
+    print("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n")
+    
+    # 运行时校验
+    if VALIDATOR_AVAILABLE:
+        try:
+            RuntimeValidator.validate()
+            print("✅ 环境校验通过\n")
+        except PermissionError as e:
+            print(f"{e}")
+            return
+    
     parser = AccountingParser()
     
     # 测试用例
@@ -334,8 +386,11 @@ def main():
         result = parser.parse_image_result(test)
         if result:
             print(f"解析结果: {json.dumps(result, ensure_ascii=False, indent=2)}")
-            query = parser.build_gui_query(result)
-            print(f"GUI Query: {query}")
+            try:
+                query = parser.build_gui_query(result)
+                print(f"GUI Query: {query}")
+            except PermissionError as e:
+                print(f"{e}")
         else:
             print("非记账信息")
 
