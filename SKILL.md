@@ -413,6 +413,7 @@ MIT-0 (ClawHub 默认许可证)
 
 - **问题反馈：** https://github.com/taobaoaz/auto-accounting/issues
 - **功能建议：** https://github.com/taobaoaz/auto-accounting/issues
+- **QQ 联系：** 2756077825
 - **ClawHub 主页：** https://clawhub.ai
 
 ---

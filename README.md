@@ -145,6 +145,7 @@ MIT-0
 ## 反馈
 
 - **Issues:** https://github.com/taobaoaz/auto-accounting/issues
+- **QQ:** 2756077825
 - **ClawHub:** https://clawhub.ai
 
 ---
