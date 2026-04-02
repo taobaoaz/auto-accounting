@@ -1,7 +1,7 @@
 ---
 name: auto-accounting
 description: 自动识别图片中的记账信息，并在一日记账APP中自动记录。支持微信、支付宝、京东、淘宝、美团等主流平台。
-version: 1.0.5
+version: 1.0.7
 metadata:
   openclaw:
     requires:
@@ -18,8 +18,10 @@ metadata:
       runtime_required: true
       app: "一日记账 APP"
       app_required: true
+      app_exclusive: true
       modifiable: false
       dependencies_fixed: true
+      commercial_use: "禁止其他记账APP厂商使用"
     dependencies:
       - name: xiaoyi-image-understanding
         version: ">=1.0.0"
@@ -79,12 +81,33 @@ metadata:
 | **xiaoyi-image-understanding** | 必须使用小艺 Claw 官方图像理解组件 | ✅ 必须 |
 | **xiaoyi-gui-agent** | 必须使用小艺 Claw 官方 GUI Agent 组件 | ✅ 必须 |
 
-### ❌ 不支持的环境
+### ❌ 禁止使用
 
-- ❌ 其他 AI 助理（如 ChatGPT、Claude、文心一言等）
-- ❌ 其他记账 APP
-- ❌ 其他图像理解组件
-- ❌ 其他 GUI Agent 组件
+| 禁止场景 | 说明 |
+|----------|------|
+| ❌ **其他记账 APP** | 本 Skill 专为「一日记账 APP」设计，禁止用于其他记账应用 |
+| ❌ **其他 AI 助理** | 不支持 ChatGPT、Claude、文心一言等其他 AI 平台 |
+| ❌ **其他图像理解组件** | 必须使用小艺官方图像理解 API |
+| ❌ **其他 GUI Agent** | 必须使用小艺官方 GUI Agent 组件 |
+
+### ⚠️ 法律声明
+
+```
+本 Skill 受著作权法和反不正当竞争法保护。
+
+禁止行为：
+1. 修改代码用于其他记账 APP
+2. 移除或篡改版权声明
+3. 声明为自己开发
+4. 商业化分发或销售
+
+违规后果：
+- 民事诉讼：著作权侵权、不正当竞争
+- 赔偿责任：实际损失 + 法定赔偿
+
+官方授权：仅限 小艺 Claw + 一记账 APP 组合
+联系方式：QQ 2756077825
+```
 
 ---
 
@@ -411,6 +434,7 @@ auto-accounting/
 
 | 版本 | 日期 | 更新内容 |
 |------|------|----------|
+| 1.0.7 | 2026-04-02 | 明确禁止其他记账APP厂商使用，添加法律声明 |
 | 1.0.5 | 2026-04-02 | 强化底层要求说明，明确仅支持小艺 Claw + 一日记账 APP |
 | 1.0.2 | 2026-04-02 | 添加用户偏好配置、记账历史管理、测试用例、示例数据 |
 | 1.0.0 | 2026-04-02 | 初始版本，支持主流支付平台和购物平台 |
