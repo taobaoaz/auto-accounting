@@ -13,7 +13,8 @@
   "requirements": {
     "runtime": "小艺 Claw",
     "app": "一日记账 APP",
-    "connection": "手机连接"
+    "connection": "手机连接",
+    "os": ["android"]
   },
   "restrictions": {
     "modifiable": false,
@@ -25,6 +26,6 @@
     "keywords": ["记账", "账单", "消费", "支出", "收入", "记一笔"]
   },
   "categories": ["finance", "automation"],
-  "license": "MIT",
+  "license": "MIT-0",
   "autoLoad": false
 }

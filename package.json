@@ -26,5 +26,11 @@
     "url": "https://github.com/taobaoaz/auto-accounting/issues"
   },
   "homepage": "https://github.com/taobaoaz/auto-accounting#readme",
-  "license": "MIT"
+  "license": "MIT-0",
+  "os": ["android"],
+  "restrictions": {
+    "modifiable": false,
+    "runtime": "小艺 Claw",
+    "app": "一日记账 APP"
+  }
 }
