@@ -7,8 +7,16 @@
   "repository": "https://github.com/taobaoaz/auto-accounting",
   "tags": ["accounting", "image", "ocr", "automation", "finance", "记账", "自动记账"],
   "dependencies": [
-    "xiaoyi-image-understanding",
-    "xiaoyi-gui-agent"
+    {
+      "name": "xiaoyi-image-understanding",
+      "version": ">=1.0.0",
+      "required": true
+    },
+    {
+      "name": "xiaoyi-gui-agent",
+      "version": ">=1.0.0",
+      "required": true
+    }
   ],
   "requirements": {
     "runtime": "小艺 Claw",
@@ -25,7 +33,19 @@
     "image_received": true,
     "keywords": ["记账", "账单", "消费", "支出", "收入", "记一笔"]
   },
-  "categories": ["finance", "automation"],
+  "categories": ["finance", "automation", "image-processing"],
+  "platforms": [
+    {"name": "微信支付", "type": "payment"},
+    {"name": "支付宝", "type": "payment"},
+    {"name": "京东", "type": "shopping"},
+    {"name": "淘宝", "type": "shopping"},
+    {"name": "美团", "type": "food"},
+    {"name": "饿了么", "type": "food"}
+  ],
   "license": "MIT-0",
-  "autoLoad": false
+  "autoLoad": false,
+  "always": false,
+  "skillKey": "auto-accounting",
+  "emoji": "💰",
+  "homepage": "https://github.com/taobaoaz/auto-accounting"
 }

@@ -11,11 +11,46 @@ metadata:
     emoji: "💰"
     homepage: https://github.com/taobaoaz/auto-accounting
     os: ["android"]
+    always: false
+    skillKey: auto-accounting
     restrictions:
       runtime: "小艺 Claw"
       app: "一日记账 APP"
       modifiable: false
       dependencies_fixed: true
+    dependencies:
+      - name: xiaoyi-image-understanding
+        version: ">=1.0.0"
+        required: true
+      - name: xiaoyi-gui-agent
+        version: ">=1.0.0"
+        required: true
+    triggers:
+      image_received: true
+      keywords:
+        - "记账"
+        - "账单"
+        - "消费"
+        - "支出"
+        - "收入"
+        - "记一笔"
+    categories:
+      - finance
+      - automation
+      - image-processing
+    platforms:
+      - name: 微信支付
+        type: payment
+      - name: 支付宝
+        type: payment
+      - name: 京东
+        type: shopping
+      - name: 淘宝
+        type: shopping
+      - name: 美团
+        type: food
+      - name: 饿了么
+        type: food
 ---
 
 # 自动记账 Skill
@@ -70,7 +105,14 @@ metadata:
 ### 方式一：ClawHub CLI（推荐）
 
 ```bash
+# 安装最新版本
 clawhub install auto-accounting
+
+# 安装指定版本
+clawhub install auto-accounting --version 1.0.0
+
+# 安装指定标签
+clawhub install auto-accounting --tag latest
 ```
 
 ### 方式二：Git Clone
@@ -92,14 +134,52 @@ git clone https://github.com/taobaoaz/auto-accounting.git
 
 ---
 
+## 更新
+
+### 查看可用更新
+
+```bash
+clawhub inspect auto-accounting --versions
+```
+
+### 更新到最新版本
+
+```bash
+clawhub update auto-accounting
+```
+
+### 更新所有已安装的 skills
+
+```bash
+clawhub update --all
+```
+
+### 查看版本详情
+
+```bash
+# 查看最新版本详情
+clawhub inspect auto-accounting
+
+# 查看指定版本详情
+clawhub inspect auto-accounting --version 1.0.0
+
+# 查看版本文件列表
+clawhub inspect auto-accounting --files
+
+# 查看特定文件内容
+clawhub inspect auto-accounting --file SKILL.md
+```
+
+---
+
 ## 依赖
 
 本 Skill 依赖以下能力（不可替换）：
 
-| 依赖 | 说明 | 不可替换 |
-|------|------|----------|
-| xiaoyi-image-understanding | 小艺图像理解，识别图片内容 | ✅ |
-| xiaoyi-gui-agent | 小艺 GUI Agent，操作手机 APP | ✅ |
+| 依赖 | 版本 | 说明 | 不可替换 |
+|------|------|------|----------|
+| xiaoyi-image-understanding | >=1.0.0 | 小艺图像理解，识别图片内容 | ✅ |
+| xiaoyi-gui-agent | >=1.0.0 | 小艺 GUI Agent，操作手机 APP | ✅ |
 
 ---
 
@@ -281,6 +361,7 @@ auto-accounting/
 ├── _meta.json                  # 元数据
 ├── package.json                # 依赖配置
 ├── README.md                   # 快速入门
+├── SECURITY_AUDIT.md           # 安全审计报告
 ├── .gitignore                  # Git 忽略配置
 ├── scripts/
 │   └── accounting_parser.py    # 账目解析器
@@ -294,7 +375,7 @@ auto-accounting/
 
 | 版本 | 日期 | 更新内容 |
 |------|------|----------|
-| 1.0.0 | 2026-04-02 | 初始版本 |
+| 1.0.0 | 2026-04-02 | 初始版本，支持主流支付平台和购物平台 |
 
 ---
 
@@ -313,6 +394,14 @@ MIT-0 (ClawHub 默认许可证)
 ## 免责声明
 
 本 Skill 仅限在小艺 Claw 环境中使用，禁止用于其他用途。使用本 Skill 需确保已安装一日记账 APP 并授权小艺 Claw 必要权限。Skill 文件禁止修改，否则可能导致功能异常。
+
+---
+
+## 反馈与支持
+
+- **问题反馈：** https://github.com/taobaoaz/auto-accounting/issues
+- **功能建议：** https://github.com/taobaoaz/auto-accounting/issues
+- **ClawHub 主页：** https://clawhub.ai
 
 ---
 
