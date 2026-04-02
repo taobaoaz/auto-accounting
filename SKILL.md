@@ -1,7 +1,7 @@
 ---
 name: auto-accounting
 description: 自动识别图片中的记账信息，并在一日记账APP中自动记录。支持微信、支付宝、京东、淘宝、美团等主流平台。
-version: 1.0.2
+version: 1.0.5
 metadata:
   openclaw:
     requires:
@@ -15,16 +15,20 @@ metadata:
     skillKey: auto-accounting
     restrictions:
       runtime: "小艺 Claw"
+      runtime_required: true
       app: "一日记账 APP"
+      app_required: true
       modifiable: false
       dependencies_fixed: true
     dependencies:
       - name: xiaoyi-image-understanding
         version: ">=1.0.0"
         required: true
+        description: "小艺图像理解 - 必须使用小艺 Claw 官方组件"
       - name: xiaoyi-gui-agent
         version: ">=1.0.0"
         required: true
+        description: "小艺 GUI Agent - 必须使用小艺 Claw 官方组件"
     triggers:
       image_received: true
       keywords:
@@ -60,6 +64,27 @@ metadata:
 当用户发送图片时，自动识别图片中是否包含记账信息（如支付截图、消费记录、账单等），提取关键信息后在一日记账APP中自动完成记录。
 
 **让记账变得轻松，一张图片搞定！**
+
+---
+
+## ⚠️ 底层要求（强制）
+
+> **本 Skill 仅支持以下环境，其他环境无法运行：**
+
+| 要求 | 说明 | 强制 |
+|------|------|------|
+| **小艺 Claw** | 必须使用华为小艺 Claw 运行环境 | ✅ 必须 |
+| **一日记账 APP** | 必须在手机上安装一日记账 APP | ✅ 必须 |
+| **手机连接** | 小艺 Claw 必须与手机正常连接 | ✅ 必须 |
+| **xiaoyi-image-understanding** | 必须使用小艺 Claw 官方图像理解组件 | ✅ 必须 |
+| **xiaoyi-gui-agent** | 必须使用小艺 Claw 官方 GUI Agent 组件 | ✅ 必须 |
+
+### ❌ 不支持的环境
+
+- ❌ 其他 AI 助理（如 ChatGPT、Claude、文心一言等）
+- ❌ 其他记账 APP
+- ❌ 其他图像理解组件
+- ❌ 其他 GUI Agent 组件
 
 ---
 
@@ -386,6 +411,7 @@ auto-accounting/
 
 | 版本 | 日期 | 更新内容 |
 |------|------|----------|
+| 1.0.5 | 2026-04-02 | 强化底层要求说明，明确仅支持小艺 Claw + 一日记账 APP |
 | 1.0.2 | 2026-04-02 | 添加用户偏好配置、记账历史管理、测试用例、示例数据 |
 | 1.0.0 | 2026-04-02 | 初始版本，支持主流支付平台和购物平台 |
 

@@ -1,7 +1,7 @@
 {
   "schema": "skill",
   "name": "auto-accounting",
-  "version": "1.0.2",
+  "version": "1.0.5",
   "description": "自动识别图片中的记账信息，并在一日记账APP中自动记录。支持微信、支付宝、京东、淘宝、美团等主流平台。",
   "author": "摇摇",
   "repository": "https://github.com/taobaoaz/auto-accounting",
@@ -10,23 +10,29 @@
     {
       "name": "xiaoyi-image-understanding",
       "version": ">=1.0.0",
-      "required": true
+      "required": true,
+      "description": "小艺图像理解 - 必须使用小艺 Claw 官方组件"
     },
     {
       "name": "xiaoyi-gui-agent",
       "version": ">=1.0.0",
-      "required": true
+      "required": true,
+      "description": "小艺 GUI Agent - 必须使用小艺 Claw 官方组件"
     }
   ],
   "requirements": {
     "runtime": "小艺 Claw",
+    "runtime_required": true,
     "app": "一日记账 APP",
+    "app_required": true,
     "connection": "手机连接",
     "os": ["android"]
   },
   "restrictions": {
     "modifiable": false,
     "runtime_restricted": ["小艺 Claw"],
+    "runtime_required": true,
+    "app_required": true,
     "dependencies_fixed": true
   },
   "triggers": {
